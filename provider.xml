@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="provider.xsl" type="text/xsl" ?>
+<tiffinProviders>
+    <provider id="p1">
+        <name>Homey Delights</name>
+        <phone>321-654-9870</phone>
+        <email>homey.delights@example.com</email>
+        <address>789 Maple Ave, Food Town, FT, 67890</address>
+        <price>12</price>
+        <rating>4.7</rating>
+        <longitude>77.1025</longitude>
+        <latitude>28.7041</latitude>
+    </provider>
+    <provider id="p2">
+        <name>Gourmet Tiffin</name>
+        <phone>322-655-9871</phone>
+        <email>gourmet.tiffin@example.com</email>
+        <address>123 Oak St, Culinary City, CC, 12345</address>
+        <price>15</price>
+        <rating>4.8</rating>
+        <longitude>75.1025</longitude>
+        <latitude>27.7041</latitude>
+    </provider>
+    <provider id="p3">
+        <name>Veggie Bites</name>
+        <phone>323-656-9872</phone>
+        <email>veggie.bites@example.com</email>
+        <address>456 Pine Rd, Veg Town, VT, 23456</address>
+        <price>10</price>
+        <rating>4.5</rating>
+        <longitude>77.5825</longitude>
+        <latitude>28.9041</latitude>
+    </provider>
+    <provider id="p4">
+        <name>Spice Route Tiffin</name>
+        <phone>324-657-9873</phone>
+        <email>spice.route@example.com</email>
+        <address>789 Cedar Ln, Spice City, SC, 34567</address>
+        <price>14</price>
+        <rating>4.6</rating>
+        <longitude>76.1025</longitude>
+        <latitude>29.7041</latitude>
+    </provider>
+    <provider id="p5">
+        <name>Urban Eats</name>
+        <phone>325-658-9874</phone>
+        <email>urban.eats@example.com</email>
+        <address>101 Birch St, Urban City, UC, 45678</address>
+        <price>16</price>
+        <rating>4.9</rating>
+        <longitude>77.9025</longitude>
+        <latitude>30.7041</latitude>
+    </provider>
+    <provider id="p6">
+        <name>Delicious Meals</name>
+        <phone>326-659-9875</phone>
+        <email>delicious.meals@example.com</email>
+        <address>202 Elm St, Delicious City, DC, 56789</address>
+        <price>18</price>
+        <rating>4.7</rating>
+        <longitude>78.1025</longitude>
+        <latitude>31.7041</latitude>
+    </provider>
+</tiffinProviders>

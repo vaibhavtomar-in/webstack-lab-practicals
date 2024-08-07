@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="www.example.com/provider"
+           xmlns="www.example.com/provider"
+           elementFormDefault="qualified">
+    <xs:element name="tiffinProviders">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="provider" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="phone" type="xs:string"/>
+                            <xs:element name="email" type="xs:string"/>
+                            <xs:element name="address" type="xs:string"/>
+                            <xs:element name="price" type="xs:decimal"/>
+                            <xs:element name="rating" type="xs:decimal"/>
+                            <xs:element name="longitude" type="xs:decimal"/>
+                            <xs:element name="latitude" type="xs:decimal"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:ID" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
