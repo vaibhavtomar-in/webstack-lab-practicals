@@ -12,7 +12,7 @@ targetNamespace="http://www.example.com/provider" xmlns:tiffin="http://www.examp
     <!-- Define a pattern for email addresses -->
     <xs:simpleType name="emailType">
         <xs:restriction base="xs:string">
-            <xs:pattern value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+            <xs:pattern value="[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
         </xs:restriction>
     </xs:simpleType>
 
