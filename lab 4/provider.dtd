@@ -1,16 +1,11 @@
-  <!ELEMENT tiffinProviders (provider+)>
-<!ELEMENT provider (name, contact, address, menu+, price, rating, longitude, latitude)>
+<!ELEMENT tiffinProviders (provider+)>
+    
+<!ELEMENT provider (name, phone, email , address, price, rating, longitude, latitude)>
 <!ATTLIST provider id ID #REQUIRED>
 <!ELEMENT name (#PCDATA)>
-<!ELEMENT contact (phone, email)>
 <!ELEMENT phone (#PCDATA)>
-<!ELEMENT email (#PCDATA)>
-<!ELEMENT address (#PCDATA)>
-<!ELEMENT menu (name, description, item+)>
-<!ATTLIST menu id ID #REQUIRED>
-<!ELEMENT description (#PCDATA)>
-<!ELEMENT item (name, price)>
-<!ATTLIST item id ID #REQUIRED>
+<!ELEMENT email (#PCDATA)>  
+<!ELEMENT address (#PCDATA)>   
 <!ELEMENT price (#PCDATA)>
 <!ELEMENT rating (#PCDATA)>
 <!ELEMENT longitude (#PCDATA)>

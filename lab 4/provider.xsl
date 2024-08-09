@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:template match="/tiffinProviders">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:tiffin="http://www.example.com/provider">
+    <xsl:template match="/tiffin:tiffinProviders">
         <html>
             <head>
             <style>
@@ -44,16 +45,16 @@
                         <th>Longitude</th>
                         <th>Latitude</th>
                     </tr>
-                    <xsl:for-each select="provider">
+                    <xsl:for-each select="tiffin:provider">
                         <tr>
-                            <td><xsl:value-of select="name"/></td>
-                            <td><xsl:value-of select="phone"/></td>
-                            <td><xsl:value-of select="email"/></td>
-                            <td><xsl:value-of select="address"/></td>
-                            <td><xsl:value-of select="price"/></td>
-                            <td><xsl:value-of select="rating"/></td>
-                            <td><xsl:value-of select="longitude"/></td>
-                            <td><xsl:value-of select="latitude"/></td>
+                            <td><xsl:value-of select="tiffin:name"/></td>
+                            <td><xsl:value-of select="tiffin:phone"/></td>
+                            <td><xsl:value-of select="tiffin:email"/></td>
+                            <td><xsl:value-of select="tiffin:address"/></td>
+                            <td><xsl:value-of select="tiffin:price"/></td>
+                            <td><xsl:value-of select="tiffin:rating"/></td>
+                            <td><xsl:value-of select="tiffin:longitude"/></td>
+                            <td><xsl:value-of select="tiffin:latitude"/></td>
                         </tr>
                     </xsl:for-each>
                 </table>

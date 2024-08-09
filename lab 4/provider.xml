@@ -1,64 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="provider.xsl" type="text/xsl" ?>
-<tiffinProviders>
-    <provider id="p1">
-        <name>Homey Delights</name>
-        <phone>321-654-9870</phone>
-        <email>homey.delights@example.com</email>
-        <address>789 Maple Ave, Food Town, FT, 67890</address>
-        <price>12</price>
-        <rating>4.7</rating>
-        <longitude>77.1025</longitude>
-        <latitude>28.7041</latitude>
-    </provider>
-    <provider id="p2">
-        <name>Gourmet Tiffin</name>
-        <phone>322-655-9871</phone>
-        <email>gourmet.tiffin@example.com</email>
-        <address>123 Oak St, Culinary City, CC, 12345</address>
-        <price>15</price>
-        <rating>4.8</rating>
-        <longitude>75.1025</longitude>
-        <latitude>27.7041</latitude>
-    </provider>
-    <provider id="p3">
-        <name>Veggie Bites</name>
-        <phone>323-656-9872</phone>
-        <email>veggie.bites@example.com</email>
-        <address>456 Pine Rd, Veg Town, VT, 23456</address>
-        <price>10</price>
-        <rating>4.5</rating>
-        <longitude>77.5825</longitude>
-        <latitude>28.9041</latitude>
-    </provider>
-    <provider id="p4">
-        <name>Spice Route Tiffin</name>
-        <phone>324-657-9873</phone>
-        <email>spice.route@example.com</email>
-        <address>789 Cedar Ln, Spice City, SC, 34567</address>
-        <price>14</price>
-        <rating>4.6</rating>
-        <longitude>76.1025</longitude>
-        <latitude>29.7041</latitude>
-    </provider>
-    <provider id="p5">
-        <name>Urban Eats</name>
-        <phone>325-658-9874</phone>
-        <email>urban.eats@example.com</email>
-        <address>101 Birch St, Urban City, UC, 45678</address>
-        <price>16</price>
-        <rating>4.9</rating>
-        <longitude>77.9025</longitude>
-        <latitude>30.7041</latitude>
-    </provider>
-    <provider id="p6">
-        <name>Delicious Meals</name>
-        <phone>326-659-9875</phone>
-        <email>delicious.meals@example.com</email>
-        <address>202 Elm St, Delicious City, DC, 56789</address>
-        <price>18</price>
-        <rating>4.7</rating>
-        <longitude>78.1025</longitude>
-        <latitude>31.7041</latitude>
-    </provider>
-</tiffinProviders>
+<tiffin:tiffinProviders xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tiffin="http://www.example.com/provider" xsi:schemaLocation="http://www.example.com/provider provider.xsd">
+    <tiffin:provider id="p1">
+        <tiffin:name>Homey Delights</tiffin:name>
+        <tiffin:phone>321-654-9870</tiffin:phone>
+        <tiffin:email>homey.delights@example.com</tiffin:email>
+        <tiffin:address>789 Maple Ave, Food Town, FT, 67890</tiffin:address>
+        <tiffin:price>12</tiffin:price>
+        <tiffin:rating>4.7</tiffin:rating>
+        <tiffin:longitude>77.1025</tiffin:longitude>
+        <tiffin:latitude>28.7041</tiffin:latitude>
+    </tiffin:provider>
+    <tiffin:provider id="p2">
+        <tiffin:name>Gourmet Tiffin</tiffin:name>
+        <tiffin:phone>322-655-9871</tiffin:phone>
+        <tiffin:email>gourmet.tiffin@example.com</tiffin:email>
+        <tiffin:address>123 Oak St, Culinary City, CC, 12345</tiffin:address>
+        <tiffin:price>15</tiffin:price>
+        <tiffin:rating>4.8</tiffin:rating>
+        <tiffin:longitude>75.1025</tiffin:longitude>
+        <tiffin:latitude>27.7041</tiffin:latitude>
+    </tiffin:provider>
+    <tiffin:provider id="p3">
+        <tiffin:name>Veggie Bites</tiffin:name>
+        <tiffin:phone>323-656-9872</tiffin:phone>
+        <tiffin:email>veggie.bites@example.com</tiffin:email>
+        <tiffin:address>456 Pine Rd, Veg Town, VT, 23456</tiffin:address>
+        <tiffin:price>10</tiffin:price>
+        <tiffin:rating>4.5</tiffin:rating>
+        <tiffin:longitude>77.5825</tiffin:longitude>
+        <tiffin:latitude>28.9041</tiffin:latitude>
+    </tiffin:provider>
+    <tiffin:provider id="p4">
+        <tiffin:name>Spice Route Tiffin</tiffin:name>
+        <tiffin:phone>324-657-9873</tiffin:phone>
+        <tiffin:email>spice.route@example.com</tiffin:email>
+        <tiffin:address>789 Cedar Ln, Spice City, SC, 34567</tiffin:address>
+        <tiffin:price>14</tiffin:price>
+        <tiffin:rating>4.6</tiffin:rating>
+        <tiffin:longitude>76.1025</tiffin:longitude>
+        <tiffin:latitude>29.7041</tiffin:latitude>
+    </tiffin:provider>
+    <tiffin:provider id="p5">
+        <tiffin:name>Urban Eats</tiffin:name>
+        <tiffin:phone>325-658-9874</tiffin:phone>
+        <tiffin:email>urban.eats@example.com</tiffin:email>
+        <tiffin:address>101 Birch St, Urban City, UC, 45678</tiffin:address>
+        <tiffin:price>16</tiffin:price>
+        <tiffin:rating>4.9</tiffin:rating>
+        <tiffin:longitude>77.9025</tiffin:longitude>
+        <tiffin:latitude>30.7041</tiffin:latitude>
+    </tiffin:provider>
+    <tiffin:provider id="p6">
+        <tiffin:name>Delicious Meals</tiffin:name>
+        <tiffin:phone>326-659-9456</tiffin:phone>
+        <tiffin:email>delicious.meals@example.com</tiffin:email>
+        <tiffin:address>202 Elm St, Delicious City, DC, 56789</tiffin:address>
+        <tiffin:price>18</tiffin:price>
+        <tiffin:rating>4.7</tiffin:rating>
+        <tiffin:longitude>78.1025</tiffin:longitude>
+        <tiffin:latitude>31.7041</tiffin:latitude>
+    </tiffin:provider>
+    <tiffin:provider id="p7">
+        <tiffin:name>Gourmet Bites</tiffin:name>
+        <tiffin:phone>327-660-9876</tiffin:phone>
+        <tiffin:email>gourmet.bites@example.com</tiffin:email>
+        <tiffin:address>303 Cedar St, Gourmet City, GC, 67890</tiffin:address>
+        <tiffin:price>20</tiffin:price>
+        <tiffin:rating>4.8</tiffin:rating>
+        <tiffin:longitude>79.2025</tiffin:longitude>
+        <tiffin:latitude>32.7041</tiffin:latitude>
+    </tiffin:provider>
+    <tiffin:provider id="p8">
+        <tiffin:name>Tasty Treats</tiffin:name>
+        <tiffin:phone>328-661-9877</tiffin:phone>
+        <tiffin:email>abc@gmail.com</tiffin:email>
+        <tiffin:address>404 Pine St, Tasty City, TC, 78901</tiffin:address>
+        <tiffin:price>15</tiffin:price>
+        <tiffin:rating>4.6</tiffin:rating>
+        <tiffin:longitude>80.3025</tiffin:longitude>
+        <tiffin:latitude>33.7041</tiffin:latitude>
+    </tiffin:provider>
+</tiffin:tiffinProviders>
