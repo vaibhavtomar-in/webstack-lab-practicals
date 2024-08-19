@@ -1,0 +1,79 @@
+.login-section{
+    background-image: url(./bg-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.outer{
+    background-color: #fc4c4c;
+}
+.form-div{
+    /* height:42em; */
+    width:33%;
+}
+button{
+    border: none;
+    background-color: #fc4c4c;
+    color: white;
+    width :5em;
+}
+button:hover{
+    background-color: black;
+}
+a{
+    color: white;
+}
+.control-input{
+    width:95%;
+}
+
+/* Adding 3D effect on input focus */
+input:focus {
+    outline: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 8px 16px rgba(0, 0, 0, 0.19);
+    transform: translateY(-3px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus:active {
+    transform: translateY(-2px);
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2), 0px 6px 12px rgba(0, 0, 0, 0.19);
+}
+
+/* Fade-in animation for the form */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-div {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Bouncing animation for the logo */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.svg-div {
+    animation: bounce 1s infinite;
+}
+
+/* Lifting animation for the buttons */
+input:focus ~ .buttons button {
+    transform: translateY(-3px);
+    transition: transform 0.2s ease;
+}
+
+@media (max-width: 768px){
+    .form-div{
+        width: 80%;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: column;
+    }
+}
