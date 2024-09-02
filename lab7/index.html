@@ -75,8 +75,10 @@
         </div>
     
         <div id="book-table-container" class="container py-3"></div>
-    
-        <div id="pagination-container" class="container py-3"></div>
+        <div class="d-flex flex-row justify-content-between align-items-center">
+          <div class="col-1"><span id  = "pageno" class = "d-none">Page 1 of 1</span></div>
+          <div id="pagination-container" class="container py-3"></div>
+        </div>
       </div>
     
       <script>
@@ -84,6 +86,7 @@
           let booksData = []; 
           let currentPage = 1; 
           const booksPerPage = 5; 
+          let pagenotag = document.getElementById('pageno');
       
           function fetchBooks(subjectName) {
             const apiUrl = `https://openlibrary.org/subjects/${subjectName}.json`;
@@ -160,13 +163,15 @@
       
             table.appendChild(tbody);
             bookTableContainer.appendChild(table);
+            updatePagination();
           }
       
           function updatePagination() {
             const paginationContainer = document.getElementById('pagination-container');
-            paginationContainer.innerHTML = ''; 
-      
+            paginationContainer.innerHTML = '';     
             const totalPages = Math.ceil(booksData.length / booksPerPage);
+            pagenotag.classList.remove("d-none");
+            pagenotag.innerText = ("Page " + currentPage + " of " + totalPages);
       
             const prevButton = document.createElement('button');
             prevButton.classList.add('btn', 'btn-secondary', 'me-2');
@@ -175,6 +180,7 @@
             prevButton.addEventListener('click', function () {
               if (currentPage > 1) {
                 currentPage--;
+                pagenotag.innerText = "Page " + currentPage + " of " + totalPages;
                 displayBooks(booksData, currentPage);
                 updatePagination();
               }
@@ -188,6 +194,7 @@
             nextButton.addEventListener('click', function () {
               if (currentPage < totalPages) {
                 currentPage++;
+                pagenotag.innerText = "Page " + currentPage + " of " + totalPages;
                 displayBooks(booksData, currentPage);
                 updatePagination();
               }
