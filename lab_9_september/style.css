@@ -1,0 +1,27 @@
+.cats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    background-image: url(./catbg.avif);
+}
+.hero{
+  background-image: url(./bg.jpg);
+
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+img {
+    margin-top: 20px;
+    max-width: 100%;
+    height: 200px;
+}
+thead{
+  background-color:rgb(255, 219, 225);
+}
