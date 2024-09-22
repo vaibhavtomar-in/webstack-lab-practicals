@@ -21,58 +21,58 @@
       crossorigin="anonymous"
     ></script>
     <style>
-        body{
-          background-color: rgb(255, 214, 234);
-        }
-        .hero {
+       .hero {
           background-image: url(./bg.jpg);
         }
-        .gallery-container {
-          overflow: hidden;
-          white-space: nowrap;
-        }
+      body {
+      background-color: rgb(255, 214, 234);
+    }
 
-        /* Common styling for both rows */
-        .gallery-row {
-          display: inline-block;
-          padding: 10px 0;
-        }
+    .gallery-container {
+      overflow: hidden;
+      white-space: nowrap;
+    }
 
-        /* Images in the gallery */
-        .gallery-row img {
-          width: 200px;
-          height: 150px;
-          object-fit: cover;
-          margin: 0 10px;
-        }
+    .gallery-row:hover {
+      animation-play-state: paused;
+    }
+    .gallery-row {
+      display: inline-block;
+      padding: 10px 0;
+    }
 
-        /* Left to Right Scroll Animation */
-        .scroll-left {
-          animation: scrollLeft 15s linear infinite;
-        }
+    .gallery-row img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      margin: 0 10px;
+    }
 
-        /* Right to Left Scroll Animation */
-        .scroll-right {
-          animation: scrollRight 15s linear infinite;
-        }
+    .scroll-left {
+      animation: scrollLeft 15s linear infinite;
+    }
 
-        @keyframes scrollLeft {
-          from {
-            transform: translateX(100%);
-          }
-          to {
-            transform: translateX(-100%);
-          }
-        }
+    .scroll-right {
+      animation: scrollRight 15s linear infinite;
+    }
 
-        @keyframes scrollRight {
-          from {
-            transform: translateX(-100%);
-          }
-          to {
-            transform: translateX(100%);
-          }
-        }
+    @keyframes scrollLeft {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes scrollRight {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(100%);
+      }
+    }
     </style>
 </head>
 <body>
