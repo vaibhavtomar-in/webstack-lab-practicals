@@ -1,249 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Scrolling Image Gallery</title>
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
   <style>
-    .hero {
-      background-image: url(./bg.jpg);
+    /* Container for the scrolling galleries */
+    .gallery-container {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    /* Common styling for both rows */
+    .gallery-row {
+      display: inline-block;
+      padding: 10px 0;
+    }
+
+    /* Images in the gallery */
+    .gallery-row img {
+      width: 150px;
+      margin: 0 10px;
+    }
+
+    /* Left to Right Scroll Animation */
+    .scroll-left {
+      animation: scrollLeft 15s linear infinite;
+    }
+
+    /* Right to Left Scroll Animation */
+    .scroll-right {
+      animation: scrollRight 15s linear infinite;
+    }
+
+    @keyframes scrollLeft {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes scrollRight {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(100%);
+      }
     }
   </style>
 </head>
-
 <body>
-  <nav class="bg-gray-100 p-3">
-    <div class="container mx-auto flex items-center justify-between">
-      <a class="font-bold text-lg">MyLibrary</a>
-      <div>
-        <ul class="flex space-x-4">
-          <li><a href="index.html" class="text-gray-600 hover:text-gray-900">Home</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <header class="container mx-auto hero p-6 my-4 bg-gray-100 rounded-lg">
-    <h3 class="text-2xl font-bold">CHRIST LIBRARY</h3>
-    <p class="text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ducimus neque pariatur
-      repellendus dicta impedit dolore atque cupiditate consectetur ipsam quibusdam veritatis, ratione odit cumque
-      sapiente, maxime ullam earum nobis.</p>
-  </header>
-
-  <div class="container mx-auto">
-    <div class="flex py-4 items-center">
-      <div class="w-1/2">
-        <p>Search for books by subject name</p>
-      </div>
-      <div class="w-1/2 flex space-x-2">
-        <input class="form-input px-4 py-2 border rounded-md w-full" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn px-4 py-2 border rounded-md bg-green-500 text-white" type="submit">Search</button>
-
-        <div class="relative">
-          <button class="btn px-4 py-2 border rounded-md bg-gray-500 text-white" type="button">
-            Sort By
-          </button>
-          <ul class="absolute mt-2 py-2 w-40 bg-white border rounded shadow-md">
-            <li><a class="block px-4 py-2 text-gray-700 hover:bg-gray-100" href="#" data-sort="title">Book Name</a></li>
-            <li><a class="block px-4 py-2 text-gray-700 hover:bg-gray-100" href="#" data-sort="year">Year Published</a></li>
-          </ul>
-        </div>
-
-        <input type="number" class="form-input px-4 py-2 border rounded-md w-20" placeholder="From Year">
-        <input type="number" class="form-input px-4 py-2 border rounded-md w-20" placeholder="To Year">
-        <button class="btn px-4 py-2 border rounded-md bg-blue-500 text-white" type="button">Filter</button>
-      </div>
-    </div>
-
-    <div id="book-table-container" class="py-4"></div>
-
-    <div class="flex justify-between items-center py-4">
-      <div class="w-1/4"><span id="pageno" class="hidden">Page 1 of 1</span></div>
-      <div id="pagination-container" class="w-full flex justify-center"></div>
-    </div>
-  </div>
-
-  <script>
-    let booksData = []; // Global variable for storing fetched books
-    let currentPage = 1;
-    const booksPerPage = 5;
-    document.addEventListener('DOMContentLoaded', function () {
-      
-      let pagenotag = document.getElementById('pageno');
-
-      function fetchBooks(subjectName) {
-        const apiUrl = `https://openlibrary.org/subjects/${subjectName}.json`;
-
-        fetch(apiUrl)
-          .then(response => response.json())
-          .then(data => {
-            booksData = data.works;
-            currentPage = 1;
-            displayBooks(booksData, currentPage);
-            updatePagination();
-          })
-          .catch(error => {
-            console.error('Error fetching books:', error);
-          });
-      }
-
-      function displayBooks(books, page) {
-        const bookTableContainer = document.getElementById('book-table-container');
-        bookTableContainer.innerHTML = '';
-
-        const table = document.createElement('table');
-        table.classList.add('table-auto', 'w-full', 'border-collapse', 'border', 'border-gray-300');
-
-        const thead = document.createElement('thead');
-        const headerRow = document.createElement('tr');
-        const headers = ['Title', 'Author(s)', 'Editions', 'First Published Year', 'Get Details'];
-
-        headers.forEach(headerText => {
-          const th = document.createElement('th');
-          th.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
-          th.textContent = headerText;
-          headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
-
-        const tbody = document.createElement('tbody');
-        const startIndex = (page - 1) * booksPerPage;
-        const endIndex = startIndex + booksPerPage;
-        const booksToShow = books.slice(startIndex, endIndex);
-
-        booksToShow.forEach(book => {
-          const row = document.createElement('tr');
-
-          const titleCell = document.createElement('td');
-          titleCell.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
-          titleCell.textContent = book.title;
-          row.appendChild(titleCell);
-
-          const authorCell = document.createElement('td');
-          authorCell.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
-          authorCell.textContent = book.authors.map(author => author.name).join(', ');
-          row.appendChild(authorCell);
-
-          const editionCell = document.createElement('td');
-          editionCell.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
-          editionCell.textContent = book.edition_count;
-          row.appendChild(editionCell);
-
-          const yearCell = document.createElement('td');
-          yearCell.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
-          yearCell.textContent = book.first_publish_year;
-          row.appendChild(yearCell);
-
-          const detailsCell = document.createElement('td');
-          detailsCell.classList.add('border', 'border-gray-300', 'px-4', 'py-2');
-          const detailsButton = document.createElement('button');
-          detailsButton.classList.add('btn', 'bg-blue-500', 'text-white', 'px-4', 'py-2');
-          detailsButton.textContent = 'Click Me';
-          detailsButton.setAttribute('data-foo', book.key);
-          detailsButton.addEventListener('click', function () {
-            window.open("https://openlibrary.org" + book.key);
-          });
-          detailsCell.appendChild(detailsButton);
-          row.appendChild(detailsCell);
-
-          tbody.appendChild(row);
-        });
-
-        table.appendChild(tbody);
-        bookTableContainer.appendChild(table);
-        updatePagination();
-      }
-
-      function updatePagination() {
-        const paginationContainer = document.getElementById('pagination-container');
-        paginationContainer.innerHTML = '';
-        const totalPages = Math.ceil(booksData.length / booksPerPage);
-        pagenotag.classList.remove("hidden");
-        pagenotag.innerText = ("Page " + currentPage + " of " + totalPages);
-
-        const prevButton = document.createElement('button');
-        prevButton.classList.add('btn', 'bg-gray-500', 'text-white', 'px-4', 'py-2', 'mr-2');
-        prevButton.textContent = 'Previous';
-        prevButton.disabled = currentPage === 1;
-        prevButton.addEventListener('click', function () {
-          if (currentPage > 1) {
-            currentPage--;
-            pagenotag.innerText = "Page " + currentPage + " of " + totalPages;
-            displayBooks(booksData, currentPage);
-            updatePagination();
-          }
-        });
-        paginationContainer.appendChild(prevButton);
-
-        const nextButton = document.createElement('button');
-        nextButton.classList.add('btn', 'bg-gray-500', 'text-white', 'px-4', 'py-2');
-        nextButton.textContent = 'Next';
-        nextButton.disabled = currentPage === totalPages;
-        nextButton.addEventListener('click', function () {
-          if (currentPage < totalPages) {
-            currentPage++;
-            pagenotag.innerText = "Page " + currentPage + " of " + totalPages;
-            displayBooks(booksData, currentPage);
-            updatePagination();
-          }
-        });
-        paginationContainer.appendChild(nextButton);
-      }
-
-      const searchInput = document.querySelector('input[type="search"]');
-      const searchButton = document.querySelector('.btn.bg-green-500');
-
-      searchButton.addEventListener('click', function () {
-        const subjectName = searchInput.value;
-        if (subjectName) {
-          fetchBooks(subjectName);
-        }
-      });
-
-      function sortBooks(sortBy) {
-        if (sortBy === 'title') {
-          booksData.sort((a, b) => {
-            if (a.title && b.title) {
-              return a.title.localeCompare(b.title);
-            }
-            return 0;
-          });
-        } else if (sortBy === 'year') {
-          booksData.sort((a, b) => {
-            const yearA = a.first_publish_year || 0;
-            const yearB = b.first_publish_year || 0;
-            return yearA - yearB;
-          });
-        }
-        displayBooks(booksData, currentPage); // Re-render the sorted books
-      }
-
-      const filterButton = document.querySelector('.btn.bg-blue-500');
-      filterButton.addEventListener('click', function () {
-        filterBooks();
-      });
-    });
-    function filterBooks() {
-      const fromYearInput = document.querySelector('input[placeholder="From Year"]');
-      const toYearInput = document.querySelector('input[placeholder="To Year"]');
-
-      const fromYear = parseInt(fromYearInput.value, 10) || 0;
-      const toYear = parseInt(toYearInput.value, 10) || new Date().getFullYear();
-
-      const filteredBooks = booksData.filter(book => {
-        const publishYear = book.first_publish_year || 0;
-        return publishYear >= fromYear && publishYear <= toYear;
-      });
-
-      displayBooks(filteredBooks, 1); // Show filtered books starting from page 1
-      updatePagination(); // Update the pagination based on filtered results
-    }
-
-  </script>
-
+  
 </body>
-
 </html>

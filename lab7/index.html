@@ -21,8 +21,57 @@
       crossorigin="anonymous"
     ></script>
     <style>
+        body{
+          background-color: rgb(255, 214, 234);
+        }
         .hero {
-            background-image: url(./bg.jpg);
+          background-image: url(./bg.jpg);
+        }
+        .gallery-container {
+          overflow: hidden;
+          white-space: nowrap;
+        }
+
+        /* Common styling for both rows */
+        .gallery-row {
+          display: inline-block;
+          padding: 10px 0;
+        }
+
+        /* Images in the gallery */
+        .gallery-row img {
+          width: 200px;
+          height: 150px;
+          object-fit: cover;
+          margin: 0 10px;
+        }
+
+        /* Left to Right Scroll Animation */
+        .scroll-left {
+          animation: scrollLeft 15s linear infinite;
+        }
+
+        /* Right to Left Scroll Animation */
+        .scroll-right {
+          animation: scrollRight 15s linear infinite;
+        }
+
+        @keyframes scrollLeft {
+          from {
+            transform: translateX(100%);
+          }
+          to {
+            transform: translateX(-100%);
+          }
+        }
+
+        @keyframes scrollRight {
+          from {
+            transform: translateX(-100%);
+          }
+          to {
+            transform: translateX(100%);
+          }
         }
     </style>
 </head>
@@ -78,6 +127,29 @@
         <div class="d-flex flex-row justify-content-between align-items-center">
           <div class="col-1"><span id  = "pageno" class = "d-none">Page 1 of 1</span></div>
           <div id="pagination-container" class="container py-3"></div>
+        </div>
+      </div>
+      <div class="container text-center my-5">
+        <!-- First Row: Scroll Left -->
+        <div class="gallery-container">
+          <div class="gallery-row scroll-left">
+            <img src="library.jpg" alt="Image 1">
+            <img src="library1.jpg" alt="Image 2">
+            <img src="library2.JPG" alt="Image 3">
+            <img src="library3.JPG" alt="Image 4">
+            <img src="library4.jpg" alt="Image 5">
+          </div>
+        </div>
+    
+        <!-- Second Row: Scroll Right -->
+        <div class="gallery-container mt-4">
+          <div class="gallery-row scroll-right">
+            <img src="library.jpg" alt="Image 1">
+            <img src="library1.jpg" alt="Image 2">
+            <img src="library2.JPG" alt="Image 3">
+            <img src="library3.JPG" alt="Image 4">
+            <img src="library4.jpg" alt="Image 5">
+          </div>
         </div>
       </div>
     
