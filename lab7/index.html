@@ -25,7 +25,7 @@
           background-image: url(./bg.jpg);
         }
       body {
-      background-color: rgb(255, 214, 234);
+      background-color: #aaf9ff;
     }
 
     .gallery-container {
@@ -56,6 +56,10 @@
       animation: scrollRight 15s linear infinite;
     }
 
+    .logo img{
+      object-fit: cover;
+      border-radius: 50%;
+    }
     @keyframes scrollLeft {
       from {
         transform: translateX(100%);
@@ -73,6 +77,7 @@
         transform: translateX(100%);
       }
     }
+
     </style>
 </head>
 <body>
@@ -92,9 +97,20 @@
           </ul>
         </div>
       </nav>
-      <header class="container hero hero p-4 my-2 bg-light rounded-3">
-        <h3>CHRIST LIBRARY</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ducimus neque pariatur repellendus dicta impedit dolore atque cupiditate consectetur ipsam quibusdam veritatis, ratione odit cumque sapiente, maxime ullam earum nobis.</p>
+      <header class="container hero p-4 my-2 bg-light rounded-3">
+        <div class="row align-items-center">
+          <!-- Logo on the left -->
+          <div class="col-md-3 text-center">
+            <img src="./christ.png" class="img-fluid rounded-circle" alt="Christ Logo" />
+          </div>
+      
+          <!-- Text on the right -->
+          <div class="col-md-9">
+            <h3>CHRIST LIBRARY</h3>
+            <p>The Central Campus has 2 libraries – the Under Graduate Library and the Knowledge Centre (PG, Research and Law Library). Both the libraries has a good collection of textbooks, reference books, periodicals, journal archives etc. The libraries can accommodate more than 1000 students and have facilities like internet and Wi-Fi services, symposium halls for group discussion, locker facility, computer lab, reprography facility, current affairs section etc. The library subscribes to electronic resources from Elsevier, Springer, Taylor and Francis, EBSCO, ProQuest, World Scientific etc. for its students and faculty through IP access.The library activities are computerized and the catalogue is available online.
+            </p>
+          </div>
+        </div>
       </header>
       <div class="container">
         <div class="row py-2">
